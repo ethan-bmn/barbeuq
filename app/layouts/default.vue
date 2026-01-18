@@ -4,36 +4,36 @@
 <template>
     <div class="min-w-full flex justify-center">
         <div class="app-container w-full sm:w-[70%] md:w-[55%] lg:w-[45%] xl:w-[40%] 2xl:w-[33%]">
-            <svg
-                class="fire-ball"
-                width="200"
-                height="100"
-                viewBox="0 0 200 100"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                <defs>
-                    <radialGradient
-                        id="halfCircleGradient"
-                        cx="50%"
-                        cy="100%"
-                        r="90%"
-                    >
-                        <stop
-                            offset="50%"
-                            stop-color="orange"
-                        />
-                        <stop
-                            offset="100%"
-                            stop-color="red"
-                        />
-                    </radialGradient>
-                </defs>
+<!--            <svg-->
+<!--                class="fire-ball"-->
+<!--                width="200"-->
+<!--                height="100"-->
+<!--                viewBox="0 0 200 100"-->
+<!--                xmlns="http://www.w3.org/2000/svg"-->
+<!--            >-->
+<!--                <defs>-->
+<!--                    <radialGradient-->
+<!--                        id="halfCircleGradient"-->
+<!--                        cx="50%"-->
+<!--                        cy="100%"-->
+<!--                        r="90%"-->
+<!--                    >-->
+<!--                        <stop-->
+<!--                            offset="50%"-->
+<!--                            stop-color="orange"-->
+<!--                        />-->
+<!--                        <stop-->
+<!--                            offset="100%"-->
+<!--                            stop-color="red"-->
+<!--                        />-->
+<!--                    </radialGradient>-->
+<!--                </defs>-->
 
-                <path
-                    d="M 10 100 A 90 90 0 0 1 190 100 L 190 100 L 10 100 Z"
-                    fill="url(#halfCircleGradient)"
-                />
-            </svg>
+<!--                <path-->
+<!--                    d="M 10 100 A 90 90 0 0 1 190 100 L 190 100 L 10 100 Z"-->
+<!--                    fill="url(#halfCircleGradient)"-->
+<!--                />-->
+<!--            </svg>-->
             <header class="h-[20%] w-full flex justify-center py-5 mb-20 relative">
                 <div class="glow-wrap">
                     <object data="img/barbeuq_logo.svg" type="image/svg+xml"></object>
@@ -72,9 +72,9 @@
 .glow-wrap {
     display: inline-block;
     filter:
-        drop-shadow(0 0 6px rgba(255, 255, 255, 0.75))
-        drop-shadow(0 0 16px rgba(255, 255, 255, 0.60))
-        drop-shadow(0 0 32px rgba(255, 255, 255, 0.35));
+        drop-shadow(0 0 10px rgba(255, 255, 255, 0.4))
+        drop-shadow(0 0 16px #ffad10)
+        drop-shadow(0 0 32px red);
 }
 
 object {
