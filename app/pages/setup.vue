@@ -5,10 +5,34 @@ const gameMode = route.query.gamemode
 
 const validGameModes = ['classic', 'truth-or-dare', 'truth-or-dare-hard', 'bedroom']
 
-const players: string[] = ref(localStorage.getItem('players') || [])
+const playerInput = ref('')
+const inputValid = computed(() => {
+    return playerInput.value
+        && playerInput.value.length > 0
+        && playerInput.value.trim().length > 0
+        && playerInput.value.trimEnd().length === playerInput.value.length
+        && playerInput.value.trimStart().length === playerInput.value.length
+        && !players.value.includes(playerInput.value)
+        && playerInput.value.length <= 10
+})
+
+const players: Ref<string[]> = ref(JSON.parse(localStorage.getItem('players') || '[]'))
+
+function syncLocalStorage() {
+    localStorage.setItem('players', JSON.stringify(players.value))
+}
 
 function addPlayer() {
+    if (!players.value.includes(playerInput.value)) {
+        players.value.push(playerInput.value)
+        playerInput.value = ''
+        syncLocalStorage()
+    }
+}
 
+function removePlayer(player: string) {
+    players.value.splice(players.value.indexOf(player), 1)
+    syncLocalStorage()
 }
 
 onMounted(() => {
@@ -29,26 +53,39 @@ onMounted(() => {
             @submit.prevent="addPlayer()"
         >
             <input
+                v-model="playerInput"
                 type="text"
                 class="player-input rounded-lg belanosima px-3"
             >
             <button
                 class="add-btn"
                 type="submit"
+                :disabled="!inputValid"
             >
                 +
             </button>
         </form>
         <div class="flex justify-center w-full">
             <div
-                class="bg-[#1a1a1a] py-4 mx-5 h-full overflow-y-auto max-h-100 relative z-2 w-full"
+                class="bg-[#1a1a1a] py-4 mx-5 h-full overflow-y-auto max-h-100 relative z-2 w-full rounded-2xl px-7"
                 style="scrollbar-width: none;"
             >
                 <div class="grid grid-rows-1 gap-8 w-full">
-                    Test
+                    <div
+                        v-for="player in players"
+                        :key="player"
+                        class="font-bold flex justify-between"
+                    >
+                        {{ player }}
+                        <button
+                            class="rounded-md border border-red-600 text-red-600 px-2 font-normal hover:bg-red-600 hover:text-white transition duration-300 cursor-pointer"
+                            @click="removePlayer(player)"
+                        >
+                            X
+                        </button>
+                    </div>
                 </div>
             </div>
-            <div class="fadedScroller_fade" />
         </div>
     </div>
 </template>
@@ -120,6 +157,12 @@ onMounted(() => {
 .add-btn:hover {
     background-color: #3a3a3a;
     text-align: center;
+}
+
+.add-btn:disabled {
+    background-color: darken($secondary, 7%);
+    color: gray;
+    pointer-events: none;
 }
 
 .player-input {
