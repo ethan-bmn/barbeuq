@@ -71,15 +71,15 @@
                 >
                     <div class="inner-btn grid grid-cols-2 gap-6">
                         <NuxtImg
-                            src="img/bedroom.png"
+                            src="img/autoroute.svg"
                             class="my-auto"
                         />
                         <div>
                             <h1>
-                                Bedroom (+18)
+                                Autoroute
                             </h1>
                             <p>
-                                Icône trompeuse, c'est pas pour dormir.
+                                File de gauche, fond de 5.
                             </p>
                         </div>
                     </div>
