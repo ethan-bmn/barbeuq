@@ -65,10 +65,10 @@ onMounted(() => {
                 +
             </button>
         </form>
-        <div class="flex justify-center w-full">
+        <div class="w-[90%] mx-auto">
             <div
-                class="bg-[#1a1a1a] py-4 mx-5 h-full overflow-y-auto max-h-100 relative z-2 w-full rounded-2xl px-7"
-                style="scrollbar-width: none;"
+                class="bg-[#1a1a1a] py-4 mx-auto overflow-y-auto max-h-full relative z-2 w-full rounded-2xl px-7"
+                style="scrollbar-width: none; height: 25vh;"
             >
                 <div class="grid grid-rows-1 gap-8 w-full">
                     <div
