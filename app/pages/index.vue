@@ -47,25 +47,6 @@
                     </div>
                 </NuxtLink>
                 <NuxtLink
-                    to="/setup?gamemode=truth-or-dare-hard"
-                    class="link-btn"
-                >
-                    <div class="inner-btn grid grid-cols-2 gap-6">
-                        <NuxtImg
-                            src="img/truth-or-dare_18.png"
-                            class="my-auto"
-                        />
-                        <div>
-                            <h1>
-                                Action ou vérité (+18)
-                            </h1>
-                            <p>
-                                Des cartes plus épicées.
-                            </p>
-                        </div>
-                    </div>
-                </NuxtLink>
-                <NuxtLink
                     to="/setup?gamemode=bedroom"
                     class="link-btn belanosima text-5xl px-10 py-4 font-bold text-white rounded-lg"
                 >
