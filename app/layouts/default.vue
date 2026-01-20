@@ -1,46 +1,33 @@
 <script setup lang="ts">
+const router = useRouter()
+
+function goBack() {
+    router.back()
+}
 </script>
 
 <template>
     <div class="min-w-full flex justify-center">
         <div class="app-container w-full sm:w-[70%] md:w-[55%] lg:w-[45%] xl:w-[40%] 2xl:w-[33%]">
-<!--            <svg-->
-<!--                class="fire-ball"-->
-<!--                width="200"-->
-<!--                height="100"-->
-<!--                viewBox="0 0 200 100"-->
-<!--                xmlns="http://www.w3.org/2000/svg"-->
-<!--            >-->
-<!--                <defs>-->
-<!--                    <radialGradient-->
-<!--                        id="halfCircleGradient"-->
-<!--                        cx="50%"-->
-<!--                        cy="100%"-->
-<!--                        r="90%"-->
-<!--                    >-->
-<!--                        <stop-->
-<!--                            offset="50%"-->
-<!--                            stop-color="orange"-->
-<!--                        />-->
-<!--                        <stop-->
-<!--                            offset="100%"-->
-<!--                            stop-color="red"-->
-<!--                        />-->
-<!--                    </radialGradient>-->
-<!--                </defs>-->
-
-<!--                <path-->
-<!--                    d="M 10 100 A 90 90 0 0 1 190 100 L 190 100 L 10 100 Z"-->
-<!--                    fill="url(#halfCircleGradient)"-->
-<!--                />-->
-<!--            </svg>-->
             <header class="h-[20%] w-full flex justify-center py-5 mb-20 relative">
                 <div class="glow-wrap">
-                    <object data="img/barbeuq_logo.svg" type="image/svg+xml"></object>
+                    <object
+                        data="img/barbeuq_logo.svg"
+                        type="image/svg+xml"
+                    />
                 </div>
                 <div class="belanosima absolute top-90/100 text-5xl">
                     BarbeuQ
                 </div>
+                <button
+                    v-if="router.currentRoute.value.name !== 'index'"
+                    class="absolute left-5 back-btn"
+                    @click="goBack()"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 1024 1024">
+                        <path fill="currentColor" d="M752.145 0c8.685 0 17.572 3.434 24.237 10.099c13.33 13.33 13.33 35.143 0 48.473L320.126 515.03l449.591 449.591c13.33 13.33 13.33 35.144 0 48.474s-35.142 13.33-48.472 0L247.418 539.268c-13.33-13.33-13.33-35.144 0-48.474L727.91 10.1C734.575 3.435 743.46.002 752.146.002z" />
+                    </svg>
+                </button>
             </header>
             <main>
                 <slot id="main" />
@@ -86,5 +73,21 @@ object {
 canvas {
     display: block;
     vertical-align: bottom;
+}
+
+.back-btn {
+    border-radius: 50%;
+    background-color: #202020;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    padding: 0 0.5em;
+    color: white;
+    transition: ease-in-out 0.3s;
+}
+
+.back-btn:hover {
+    background-color: #5e5e5e;
+    cursor: pointer;
 }
 </style>
