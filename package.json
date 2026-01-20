@@ -17,6 +17,7 @@
     "tailwindcss": "^4.1.18",
     "typescript": "^5.6.3",
     "vue": "^3.5.26",
+    "vue-range-multi": "^0.5.0",
     "vue-router": "^4.6.4"
   },
   "devDependencies": {
