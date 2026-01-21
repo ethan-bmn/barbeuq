@@ -47,7 +47,7 @@
                     </div>
                 </NuxtLink>
                 <NuxtLink
-                    to="/setup?gamemode=bedroom"
+                    to="/setup?gamemode=autobahn"
                     class="link-btn belanosima text-5xl px-10 py-4 font-bold text-white rounded-lg"
                 >
                     <div class="inner-btn grid grid-cols-2 gap-6">

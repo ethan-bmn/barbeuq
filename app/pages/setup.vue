@@ -7,7 +7,7 @@ const gameMode = route.query.gamemode
 
 const validGameModes = ['classic', 'truth-or-dare', 'autobahn']
 
-const embersValues = ref<number[]>([1, 5])
+const penalties = ref<number[]>([1, 5])
 
 const playerInput = ref('')
 const inputValid = computed(() => {
@@ -42,7 +42,7 @@ function removePlayer(player: string) {
 }
 
 function play() {
-    router.push(`/lobby?gamemode=${gameMode}&players=${players.value.join(',')}`)
+    router.push(`/lobby?gamemode=${gameMode}&players=${players.value.join(',')}&penalties=${penalties.value.join(',')}`)
 }
 
 onMounted(() => {
@@ -108,10 +108,10 @@ onMounted(() => {
             </div>
             <div class="mt-3">
                 <p class="text-center belanosima text-lg mb-3">
-                    Nombre de sanctions : {{ embersValues[0] }} à {{ embersValues[1] }}
+                    Nombre de sanctions : {{ penalties[0] }} à {{ penalties[1] }}
                 </p>
                 <DualRange
-                    v-model="embersValues"
+                    v-model="penalties"
                     class="mx-auto block w-[75%]"
                 />
                 <button
