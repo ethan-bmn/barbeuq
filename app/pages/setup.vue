@@ -5,7 +5,7 @@ const route = useRoute()
 
 const gameMode = route.query.gamemode
 
-const validGameModes = ['classic', 'truth-or-dare', 'truth-or-dare-hard', 'bedroom']
+const validGameModes = ['classic', 'truth-or-dare', 'autobahn']
 
 const embersValues = ref<number[]>([1, 5])
 
@@ -21,6 +21,8 @@ const inputValid = computed(() => {
 })
 
 const players: Ref<string[]> = ref(JSON.parse(localStorage.getItem('players') || '[]'))
+
+const router = useRouter()
 
 function syncLocalStorage() {
     localStorage.setItem('players', JSON.stringify(players.value))
@@ -39,9 +41,12 @@ function removePlayer(player: string) {
     syncLocalStorage()
 }
 
+function play() {
+    router.push(`/lobby?gamemode=${gameMode}&players=${players.value.join(',')}`)
+}
+
 onMounted(() => {
     if (!gameMode || typeof gameMode !== 'string' || !validGameModes.includes(gameMode)) {
-        const router = useRouter()
         router.push('/')
     }
 })
@@ -103,7 +108,7 @@ onMounted(() => {
             </div>
             <div class="mt-3">
                 <p class="text-center belanosima text-lg mb-3">
-                    Nombre de braises : {{ embersValues[0] }} à {{ embersValues[1] }}
+                    Nombre de sanctions : {{ embersValues[0] }} à {{ embersValues[1] }}
                 </p>
                 <DualRange
                     v-model="embersValues"
@@ -112,6 +117,7 @@ onMounted(() => {
                 <button
                     class="play-btn text-3xl px-8 py-3 mx-auto mt-5"
                     :disabled="players.length < 2"
+                    @click="play()"
                 >
                     Jouer
                 </button>

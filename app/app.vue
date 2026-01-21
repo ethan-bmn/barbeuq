@@ -7,9 +7,9 @@ useHead({
             content: 'BarbeuQ - Jeu de carte entre amis... ou plus !',
         },
         {
-            name: "viewport",
+            name: 'viewport',
             content: 'width=device-width, initial-scale=1.0',
-        }
+        },
     ],
     htmlAttrs: {
         lang: 'fr',

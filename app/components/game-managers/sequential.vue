@@ -1,4 +1,5 @@
 <script setup lang="ts">
+console.log('sequential')
 </script>
 
 <template>
@@ -57,10 +58,10 @@
                         />
                         <div>
                             <h1>
-                                Autobahn
+                                Autoroute
                             </h1>
                             <p>
-                                La meilleure défense, c'est l'attaque.
+                                File de gauche, fond de 5.
                             </p>
                         </div>
                     </div>
@@ -69,49 +70,3 @@
         </div>
     </div>
 </template>
-
-<style lang="scss">
-@use "sass:color";
-.link-btn {
-    display: grid;
-    background-color: $secondary;
-    transition: ease-in-out 0.4s;
-    z-index: 2;
-    text-align: center;
-    width: 80%;
-    margin: 0 auto;
-
-    font-family: "Belanosima", sans-serif;
-    font-style: normal;
-    font-weight: 600;
-
-    color: white;
-    border-radius: var(--radius-xl);
-    padding: calc(var(--spacing) * 3);
-
-    .inner-btn {
-        grid-template-columns: 20% auto;
-    }
-
-    h1 {
-        font-size: var(--text-lg);
-        text-align: start;
-        line-height: 25px;
-    }
-    p {
-        margin-top: var(--spacing);
-        font-size: var(--text-xs);
-        text-align: start;
-    }
-}
-
-.link-btn:hover {
-    box-shadow: 0 15px 30px rgba(194, 88, 18, 0.5);
-    background-color: #3a3a3a;
-    transform: translateY(-5px);
-}
-
-.link-img {
-    width: 46px;
-}
-</style>

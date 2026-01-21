@@ -16,7 +16,7 @@ function goBack() {
                         type="image/svg+xml"
                     />
                 </div>
-                <div class="belanosima absolute top-90/100 text-5xl">
+                <div class="momo-trust-display-regular absolute top-90/100 text-5xl text-white">
                     BarbeuQ
                 </div>
                 <button
