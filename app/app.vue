@@ -24,12 +24,20 @@ useSeoMeta({
     ogSiteName: 'BarbeuQ',
     ogLocale: 'fr_FR',
 })
+
+function onAfterEnter() {
+    window.dispatchEvent(new CustomEvent('onAfterEnter'))
+}
 </script>
 
 <template>
     <div>
         <NuxtLayout>
-            <NuxtPage />
+            <NuxtPage
+                :transition="{
+                    onAfterEnter,
+                }"
+            />
         </NuxtLayout>
     </div>
 </template>

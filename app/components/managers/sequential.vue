@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import classic from '@/assets/gamemodes-data/classic.json'
-import { randInt } from '~/utils/randInt';
+import { randInt } from '~/utils/randInt'
 
 const card = useTemplateRef('card')
 const gameMode: string = inject('gameMode')!
@@ -23,7 +23,7 @@ function getRandomCard() {
     data.splice(data.indexOf(chosenCard.value), 1)
 }
 
-function onCardSwipe() {
+function swipeCard() {
     if (!card.value) {
         return
     }
@@ -32,22 +32,21 @@ function onCardSwipe() {
     card.value.swipeIn()
 }
 
-onMounted(() => {
-    getRandomCard()
+window.addEventListener('onAfterEnter', () => {
+    swipeCard()
 })
 </script>
 
 <template>
-    <div class="flex justify-center w-full h-full">
-        <div
-            class="py-4 mx-5 rounded-2xl h-full overflow-y-auto max-h-100 relative z-2 w-full"
-            style="scrollbar-width: none;"
-        >
-            <PlayingCard
-                ref="card"
-                :content="chosenCard"
-                @swiped="onCardSwipe()"
-            />
-        </div>
+    <div
+        class="py-4 mx-5 rounded-2xl min-h-full overflow-y-auto max-h-100 relative z-2 w-full "
+        style="scrollbar-width: none;"
+    >
+        <PlayingCard
+            ref="card"
+            class="absolute"
+            :content="chosenCard"
+            @swiped="swipeCard()"
+        />
     </div>
 </template>

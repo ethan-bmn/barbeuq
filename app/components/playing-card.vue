@@ -44,10 +44,6 @@ function formatContent(content: string) {
 defineExpose({
     swipeIn: swipeIn,
 })
-
-onMounted(() => {
-    swipeIn()
-})
 </script>
 
 <template>
@@ -82,7 +78,8 @@ onMounted(() => {
     transition: 0.3s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;;
     cursor: default;
     aspect-ratio: 5/7;
-    width: 75%
+    width: 75vw;
+    height: auto;
 }
 
 .swipe-card:hover {

@@ -36,5 +36,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <component :is="currentManager" />
+    <div class="flex justify-center items-center h-full">
+        <component :is="currentManager" />
+    </div>
 </template>

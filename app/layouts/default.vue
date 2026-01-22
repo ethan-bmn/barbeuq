@@ -29,7 +29,7 @@ function goBack() {
                     </svg>
                 </button>
             </header>
-            <main>
+            <main style="position: relative">
                 <slot id="main" />
             </main>
         </div>
@@ -95,11 +95,10 @@ canvas {
 .page-right-enter-active,
 .page-left-leave-active,
 .page-right-leave-active {
-    position: fixed;
+    position: absolute;
     left: 0;
     right: 0;
     transition: all 0.6s ease;
-    max-width: 100%;
 }
 
 .page-left-enter-from, .page-right-leave-to {

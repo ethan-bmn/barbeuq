@@ -53,7 +53,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div>
+    <div class="w-full">
         <div class="belanosima text-3xl text-center mb-3 w-[1/3%]">
             Qui joue ?
         </div>
@@ -83,7 +83,7 @@ onMounted(() => {
                     <div
                         v-for="player in players"
                         :key="player"
-                        class="font-bold flex justify-between"
+                        class="font-bold flex justify-between belanosima"
                     >
                         {{ player }}
                         <button
@@ -100,7 +100,7 @@ onMounted(() => {
                     </div>
                     <div
                         v-if="players.length === 0"
-                        class="italic text-gray-500 text-center"
+                        class="text-gray-500 text-center belanosima italic"
                     >
                         Aucun joueur ajouté.
                     </div>
