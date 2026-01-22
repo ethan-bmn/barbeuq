@@ -90,4 +90,30 @@ canvas {
     background-color: #5e5e5e;
     cursor: pointer;
 }
+
+.page-left-enter-active,
+.page-right-enter-active,
+.page-left-leave-active,
+.page-right-leave-active {
+    position: fixed;
+    left: 0;
+    right: 0;
+    transition: all 0.6s ease;
+    max-width: 100%;
+}
+
+.page-left-enter-from, .page-right-leave-to {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.page-left-leave-to, .page-right-enter-from {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.page-left-enter-to, .page-right-enter-to {
+    transform: translateX(0);
+    opacity: 1;
+}
 </style>
