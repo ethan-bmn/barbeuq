@@ -29,7 +29,7 @@ function goBack() {
                     </svg>
                 </button>
             </header>
-            <main style="position: relative">
+            <main style="position: relative; height: 100%;">
                 <slot id="main" />
             </main>
         </div>

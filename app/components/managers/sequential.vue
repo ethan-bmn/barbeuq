@@ -31,21 +31,16 @@ function swipeCard() {
     getRandomCard()
     card.value.swipeIn()
 }
-
-window.addEventListener('onAfterEnter', () => {
-    swipeCard()
-})
 </script>
 
 <template>
     <div
-        class="py-4 mx-5 rounded-2xl min-h-full overflow-y-auto max-h-100 relative z-2 w-full "
+        class="py-4 mx-5 rounded-2xl min-h-full overflow-y-auto max-h-100 z-2 w-full relative flex justify-center pb-10"
         style="scrollbar-width: none;"
     >
         <PlayingCard
             ref="card"
-            class="absolute"
-            :content="chosenCard"
+            :content="'$player, épelle \'anticonstitutionnellement\', $penalties si t\'as faux'"
             @swiped="swipeCard()"
         />
     </div>

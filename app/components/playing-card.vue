@@ -44,6 +44,10 @@ function formatContent(content: string) {
 defineExpose({
     swipeIn: swipeIn,
 })
+
+onMounted(() => {
+    swipeIn()
+})
 </script>
 
 <template>
@@ -53,10 +57,13 @@ defineExpose({
     >
         <div
             v-if="visible"
-            class="swipe-card belanosima mx-auto text-lg px-4 py-3"
+            class="swipe-card belanosima mx-auto text-lg px-4 py-3 min-h-[55vh] max-h-[55vh] md:text-xl"
             @click="swipeOut"
         >
-            <span v-html="formatContent(content)" />
+            <p
+                style="overflow-wrap: break-word; hyphens: auto"
+                v-html="formatContent(content)"
+            />
         </div>
     </Transition>
 </template>
@@ -72,14 +79,13 @@ defineExpose({
 }
 
 .swipe-card {
-    background-color: #262626 ;
+    background-color: #262626;
     border-radius: 12px;
     box-shadow: 0 6px 18px rgba(109, 64, 64, 0.4);
     transition: 0.3s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;;
     cursor: default;
     aspect-ratio: 5/7;
-    width: 75vw;
-    height: auto;
+    text-overflow: '-';
 }
 
 .swipe-card:hover {
