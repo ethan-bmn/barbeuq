@@ -4,6 +4,10 @@ const router = useRouter()
 function goBack() {
     router.back()
 }
+
+useSeoMeta({
+    title: 'Barbeuq - Jeu de cartes entre amis',
+})
 </script>
 
 <template>

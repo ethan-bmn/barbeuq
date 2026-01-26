@@ -6,6 +6,13 @@ export default defineNuxtConfig({
     ssr: true,
     devtools: { enabled: true },
     compatibilityDate: '2025-07-15',
+    nitro: {
+        baseURL: import.meta.baseURL,
+        prerender: {
+            crawlLinks: false,
+            failOnError: false,
+        },
+    },
     vite: {
         plugins: [tailwindcss()],
         css: {
