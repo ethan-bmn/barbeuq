@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineNuxtConfig({
     modules: ['@nuxt/image', '@nuxt/eslint'],
-    ssr: false,
+    ssr: true,
     devtools: { enabled: true },
     compatibilityDate: '2025-07-15',
     vite: {
