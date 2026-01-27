@@ -9,6 +9,8 @@ const validGameModes = ['classic', 'truth-or-dare', 'autobahn']
 
 const penalties = ref<number[]>([1, 5])
 
+const MAX_PLAYER_NAME_LENGTH = 15
+
 const playerInput = ref('')
 const inputValid = computed(() => {
     return playerInput.value
@@ -17,10 +19,10 @@ const inputValid = computed(() => {
         && playerInput.value.trimEnd().length === playerInput.value.length
         && playerInput.value.trimStart().length === playerInput.value.length
         && !players.value.includes(playerInput.value)
-        && playerInput.value.length <= 15
+        && playerInput.value.length <= MAX_PLAYER_NAME_LENGTH
 })
 
-const players: Ref<string[]> = ref(JSON.parse(localStorage.getItem('players') || '[]'))
+const players: Ref<string[]> = ref([])
 
 const router = useRouter()
 
@@ -49,14 +51,30 @@ onMounted(() => {
     if (!gameMode || typeof gameMode !== 'string' || !validGameModes.includes(gameMode)) {
         router.push('/')
     }
+
+    players.value = JSON.parse(localStorage.getItem('players') || '[]')
 })
 </script>
 
 <template>
     <div class="w-full">
-        <div class="belanosima text-3xl text-center mb-3 w-[1/3%]">
+        <div :class="`belanosima text-3xl text-center w-[1/3%] mb-4`">
             Qui joue ?
         </div>
+        <Transition>
+            <div
+                v-if="!inputValid && playerInput.length > MAX_PLAYER_NAME_LENGTH"
+                class="belanosima text-xs text-center text-red-800 italic mb-1 w-[1/3%]"
+            >
+                Nom trop long !
+            </div>
+            <div
+                v-else-if="players.length < 2"
+                class="belanosima text-xs text-center text-red-800 italic mb-1 w-[1/3%]"
+            >
+                Pas assez de joueurs !
+            </div>
+        </Transition>
         <form
             class="flex mx-auto mb-4 text-xl w-[80%]"
             @submit.prevent="addPlayer()"
@@ -230,5 +248,15 @@ onMounted(() => {
     border-radius: var(--radius-2xl);
     border-start-end-radius: 0;
     border-end-end-radius: 0;
+}
+
+.v-enter-active,
+.v-leave-active {
+    transition: opacity 0.3s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
 }
 </style>
