@@ -60,7 +60,7 @@ onMounted(() => {
     >
         <div
             v-if="visible"
-            class="swipe-card belanosima mx-auto text-lg lg:text-2xl px-4 py-3 min-h-[55vh] max-h-[55vh] md:text-xl"
+            class="swipe-card belanosima mx-auto text-xl px-4 py-3 min-h-[55vh] max-h-[55vh] md:text-2xl"
             @click="swipeOut"
         >
             <p
