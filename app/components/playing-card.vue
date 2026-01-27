@@ -32,12 +32,15 @@ function getRandomPlayer() {
 function formatContent(content: string) {
     let result = content
     result = result.replaceAll('$player', `<span style="color: #fe8b14">${getRandomPlayer()}</span>`)
-    const embers = randInt(Number(penalties[0]), Number(penalties[1]))
-    let text = 'sanctions'
-    if (embers === 1) {
-        text = 'sanction'
+
+    while (result.includes('$penalties')) {
+        const embers = randInt(Number(penalties[0]), Number(penalties[1]))
+        let text = 'sanctions'
+        if (embers === 1) {
+            text = 'sanction'
+        }
+        result = result.replace('$penalties', `<span style="color: #fe8b14">${embers}</span> ${text}`)
     }
-    result = result.replaceAll('$penalties', `<span style="color: #fe8b14">${embers}</span> ${text}`)
     return result
 }
 
@@ -57,11 +60,10 @@ onMounted(() => {
     >
         <div
             v-if="visible"
-            class="swipe-card belanosima mx-auto text-lg px-4 py-3 min-h-[55vh] max-h-[55vh] md:text-xl"
+            class="swipe-card belanosima mx-auto text-lg lg:text-2xl px-4 py-3 min-h-[55vh] max-h-[55vh] md:text-xl"
             @click="swipeOut"
         >
             <p
-                style="overflow-wrap: break-word; hyphens: auto"
                 v-html="formatContent(content)"
             />
         </div>
@@ -85,12 +87,12 @@ onMounted(() => {
     transition: 0.3s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;;
     cursor: default;
     aspect-ratio: 5/7;
-    text-overflow: '-';
+
 }
 
 .swipe-card:hover {
-    background-color: #5e5e5e;
     cursor: pointer;
+    background-color: #383838;
 }
 
 @keyframes swipeInUp {
