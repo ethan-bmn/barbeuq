@@ -69,7 +69,7 @@ onMounted(() => {
                 Nom trop long !
             </div>
             <div
-                v-else-if="players.length < 2"
+                v-else-if="players.length === 1"
                 class="belanosima text-xs text-center text-red-800 italic mb-1 w-[1/3%]"
             >
                 Pas assez de joueurs !
