@@ -75,7 +75,6 @@ function navigateTo(to: string) {
 
     font-family: "Belanosima", sans-serif;
     font-style: normal;
-    font-weight: 600;
 
     color: white;
     border-radius: var(--radius-xl);
@@ -86,13 +85,13 @@ function navigateTo(to: string) {
     }
 
     h1 {
-        font-size: var(--text-lg);
+        font-size: var(--text-xl);
         text-align: start;
         line-height: 25px;
     }
     p {
         margin-top: var(--spacing);
-        font-size: var(--text-xs);
+        font-size: var(--text-sm);
         text-align: start;
     }
 }

@@ -60,7 +60,7 @@ onMounted(() => {
     >
         <div
             v-if="visible"
-            class="swipe-card belanosima mx-auto text-xl px-4 py-3 min-h-[55vh] max-h-[55vh] md:text-2xl"
+            class="swipe-card belanosima mx-auto text-2xl p-5 min-h-[55vh] max-h-[55vh]"
             @click="swipeOut"
         >
             <p
@@ -82,12 +82,11 @@ onMounted(() => {
 
 .swipe-card {
     background-color: #262626;
-    border-radius: 12px;
+    border-radius: 25px;
     box-shadow: 0 6px 18px rgba(109, 64, 64, 0.4);
     transition: 0.3s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;;
     cursor: default;
     aspect-ratio: 5/7;
-
 }
 
 .swipe-card:hover {

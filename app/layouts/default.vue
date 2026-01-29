@@ -13,14 +13,14 @@ useSeoMeta({
 <template>
     <div class="min-w-full flex justify-center">
         <div class="app-container w-full sm:w-[70%] md:w-[55%] lg:w-[45%] xl:w-[40%] 2xl:w-[33%]">
-            <header class="h-[20%] w-full flex justify-center py-5 mb-15 relative mt-2">
+            <header class="h-[20%] w-full flex justify-center py-5 mb-10 relative mt-2">
                 <div class="glow-wrap">
                     <img
                         src="/img/barbeuq_logo.svg"
-                        style="width: 17vh; height: auto;"
+                        style="width: 12vh; height: auto;"
                     >
                 </div>
-                <div class="momo-trust-display-regular absolute top-90/100 text-5xl text-white">
+                <div class="momo-trust-display-regular absolute top-70/100 text-4xl text-white">
                     BarbeuQ
                 </div>
                 <button

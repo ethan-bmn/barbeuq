@@ -64,13 +64,13 @@ onMounted(() => {
         <Transition>
             <div
                 v-if="!inputValid && playerInput.length > MAX_PLAYER_NAME_LENGTH"
-                class="belanosima text-xs text-center text-red-800 italic mb-1 w-[1/3%]"
+                class="belanosima text-sm text-center text-red-800 italic mb-1 w-[1/3%]"
             >
                 Nom trop long !
             </div>
             <div
                 v-else-if="players.length === 1"
-                class="belanosima text-xs text-center text-red-800 italic mb-1 w-[1/3%]"
+                class="belanosima text-sm text-center text-red-800 italic mb-1 w-[1/3%]"
             >
                 Pas assez de joueurs !
             </div>
@@ -95,13 +95,13 @@ onMounted(() => {
         <div class="w-[90%] mx-auto">
             <div
                 class="bg-[#1a1a1a] py-4 mx-auto overflow-y-auto max-h-full relative z-2 w-full rounded-2xl px-7"
-                style="scrollbar-width: none; height: 22vh;"
+                style="scrollbar-width: thin; height: 22vh;"
             >
                 <div class="grid grid-rows-1 gap-5 w-full">
                     <div
                         v-for="player in players"
                         :key="player"
-                        class="font-bold flex justify-between belanosima"
+                        class="flex justify-between belanosima"
                     >
                         {{ player }}
                         <button
@@ -161,7 +161,6 @@ onMounted(() => {
 
     font-family: "Belanosima", sans-serif;
     font-style: normal;
-    font-weight: 600;
 
     color: white;
     border-radius: var(--radius-xl);
@@ -179,7 +178,7 @@ onMounted(() => {
 
     p {
         margin-top: var(--spacing);
-        font-size: var(--text-xs);
+        font-size: var(--text-sm);
         text-align: start;
     }
 }
@@ -206,10 +205,6 @@ onMounted(() => {
     text-align: center;
     width: 80%;
     margin: 0 auto;
-
-    font-family: "Belanosima", sans-serif;
-    font-style: normal;
-    font-weight: 600;
 
     color: white;
     border-radius: var(--radius-xl);
