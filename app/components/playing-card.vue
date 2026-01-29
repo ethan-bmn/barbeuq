@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { randInt } from '~/utils/randInt'
 
-const props = defineProps({
+defineProps({
     content: {
         type: String,
         required: true,

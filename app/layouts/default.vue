@@ -16,6 +16,7 @@ useSeoMeta({
             <header class="h-[20%] w-full flex justify-center py-5 mb-10 relative mt-2">
                 <div class="glow-wrap">
                     <img
+                        alt="BarbeuQ Logo"
                         src="/img/barbeuq_logo.svg"
                         style="width: 12vh; height: auto;"
                     >
