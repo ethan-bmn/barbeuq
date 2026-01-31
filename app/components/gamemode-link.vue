@@ -44,7 +44,7 @@ function navigateTo(to: string) {
                 :src="img"
                 class="my-auto link-img"
             />
-            <div>
+            <div class="quicksand">
                 <h1>
                     {{ title }}
                 </h1>
@@ -72,9 +72,6 @@ function navigateTo(to: string) {
     text-align: center;
     width: 80%;
     margin: 0 auto;
-
-    font-family: "Belanosima", sans-serif;
-    font-style: normal;
 
     color: white;
     border-radius: var(--radius-xl);

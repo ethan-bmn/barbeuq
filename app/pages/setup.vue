@@ -9,7 +9,7 @@ const validGameModes = ['classic', 'truth-or-dare', 'autobahn']
 
 const penalties = ref<number[]>([1, 5])
 
-const MAX_PLAYER_NAME_LENGTH = 15
+const MAX_PLAYER_NAME_LENGTH = 12
 
 const playerInput = ref('')
 const inputValid = computed(() => {
@@ -47,6 +47,24 @@ function play() {
     router.push(`/lobby?gamemode=${gameMode}&players=${players.value.join(',')}&penalties=${penalties.value.join(',')}`)
 }
 
+function numberToColor(value: number | undefined): string {
+    if (!value) return '#FFFFFF'
+    // Clamp between 1 and 10
+    const clamped = Math.min(10, Math.max(1, value))
+
+    // Normalize to 0–1
+    const t = (clamped - 1) / 9
+
+    const start = { r: 255, g: 255, b: 255 } // start color
+    const end = { r: 255, g: 0, b: 0 } // end color
+
+    const r = Math.round(start.r + t * (end.r - start.r))
+    const g = Math.round(start.g + t * (end.g - start.g))
+    const b = Math.round(start.b + t * (end.b - start.b))
+
+    return `#${[r, g, b].map(c => c.toString(16).padStart(2, '0')).join('')}`
+}
+
 onMounted(() => {
     if (!gameMode || typeof gameMode !== 'string' || !validGameModes.includes(gameMode)) {
         router.push('/')
@@ -58,19 +76,19 @@ onMounted(() => {
 
 <template>
     <div class="w-full">
-        <div :class="`belanosima text-3xl text-center w-[1/3%] mb-4`">
+        <div :class="`quicksand text-3xl text-center w-[1/3%] mb-4`">
             Qui joue ?
         </div>
         <Transition>
             <div
                 v-if="!inputValid && playerInput.length > MAX_PLAYER_NAME_LENGTH"
-                class="belanosima text-sm text-center text-red-800 italic mb-1 w-[1/3%]"
+                class="quicksand text-sm text-center text-red-800 italic mb-1 w-[1/3%] font-bold"
             >
                 Nom trop long !
             </div>
             <div
                 v-else-if="players.length === 1"
-                class="belanosima text-sm text-center text-red-800 italic mb-1 w-[1/3%]"
+                class="quicksand text-sm text-center text-red-800 italic mb-1 w-[1/3%] font-bold"
             >
                 Pas assez de joueurs !
             </div>
@@ -82,7 +100,7 @@ onMounted(() => {
             <input
                 v-model="playerInput"
                 type="text"
-                class="player-input rounded-lg belanosima px-3"
+                class="player-input rounded-lg quicksand px-3"
             >
             <button
                 class="add-btn"
@@ -92,16 +110,16 @@ onMounted(() => {
                 +
             </button>
         </form>
-        <div class="w-[90%] mx-auto">
+        <div class="w-[85%] mx-auto">
             <div
-                class="bg-[#1a1a1a] py-4 mx-auto overflow-y-auto max-h-full relative z-2 w-full rounded-2xl px-7"
+                class="bg-[#1a1a1a] py-2 mx-auto overflow-y-auto max-h-full relative z-2 w-full rounded-2xl px-4"
                 style="scrollbar-width: thin; height: 22vh;"
             >
-                <div class="grid grid-rows-1 gap-5 w-full">
+                <div class="grid grid-rows-1 gap-2 w-full">
                     <div
                         v-for="player in players"
                         :key="player"
-                        class="flex justify-between belanosima"
+                        class="flex justify-between quicksand rounded-lg px-2 py-2"
                     >
                         {{ player }}
                         <button
@@ -123,14 +141,17 @@ onMounted(() => {
                     </div>
                     <div
                         v-if="players.length === 0"
-                        class="text-gray-500 text-center belanosima italic"
+                        class="text-gray-500 text-center quicksand italic"
                     >
                         Aucun joueur ajouté.
                     </div>
                 </div>
             </div>
             <div class="mt-3">
-                <p class="text-center belanosima text-lg mb-3">
+                <p
+                    class="text-center quicksand text-lg mb-3"
+                    :style="`color: ${numberToColor(penalties[1])}`"
+                >
                     Nombre de sanctions : {{ penalties[0] }} à {{ penalties[1] }}
                 </p>
                 <DualRange
@@ -138,7 +159,7 @@ onMounted(() => {
                     class="mx-auto block w-[75%]"
                 />
                 <button
-                    class="play-btn text-3xl px-8 py-3 mx-auto mt-5"
+                    class="play-btn text-3xl px-8 py-3 mx-auto mt-5 quicksand"
                     :disabled="players.length < 2"
                     @click="play()"
                 >
@@ -159,7 +180,7 @@ onMounted(() => {
     z-index: 2;
     text-align: center;
 
-    font-family: "Belanosima", sans-serif;
+    font-family: "quicksand", sans-serif;
     font-style: normal;
 
     color: white;

@@ -61,7 +61,7 @@ onMounted(() => {
         <Transition>
             <div
                 v-if="data.length === 0 || cardCount >= MAX_CARDS"
-                class="belanosima text-center"
+                class="quicksand text-center"
             >
                 <p class="text-2xl mb-3">
                     Partie terminée !
@@ -100,7 +100,7 @@ onMounted(() => {
     width: 80%;
     margin: 0 auto;
 
-    font-family: "Belanosima", sans-serif;
+    font-family: "quicksand", sans-serif;
     font-style: normal;
     font-weight: 600;
 

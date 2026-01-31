@@ -9,7 +9,7 @@ const model = ref<number[]>([1, 10])
     <Range
         v-model="model"
         range-highlight
-        size="medium"
+        size="small"
         :min="1"
         :max="10"
         :smooth="true"
@@ -20,10 +20,11 @@ const model = ref<number[]>([1, 10])
 @use 'vue-range-multi/style.css';
 
 .m-range-highlight {
-    background-color: #ea913b;
+    background: linear-gradient(90deg, #ea913b, #e34106);
+
 }
 
 .m-range-theme {
-    --c-primary: #630b12;
+    --c-primary: #202020;
 }
 </style>
