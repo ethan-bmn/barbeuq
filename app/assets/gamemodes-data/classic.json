@@ -22,7 +22,7 @@
     "$player, désigne un drinking buddy pour t'accompagner jusqu'à la fin de la partie. Et puis prenez $penalties, pour bien commencer votre nouvelle amitié.",
     "$player, distribue le nombre de braises qui correspond au dernier chiffre de ton numéro de téléphone.",
     "$player, prends $penalties si t'as déjà embrassé une personne du même sexe.",
-    "Les bons à rien qui ont pas le bac prennent $penalties.",
+    "Les bons à rien qui n'ont pas le bac prennent $penalties.",
     "$player, distribue ton nombre de points sur ton permis. Si t'as pas le permis, prends $penalties.",
     "Ceux qui sont sur leur téléphone prennent $penalties. Génération de merde...",
     "$player, prends le nombre de râteaux que tu t'es déjà mangé en braises.",
