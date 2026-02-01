@@ -10,6 +10,10 @@ useHead({
             name: 'viewport',
             content: 'width=device-width, initial-scale=1.0',
         },
+        {
+            name: 'google-site-verification',
+            content: 'uhn_4_itVnjix46qeV9CbIh-X9r50jBh50ZqJR775kM',
+        },
     ],
     htmlAttrs: {
         lang: 'fr',
