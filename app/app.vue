@@ -4,7 +4,7 @@ useHead({
     meta: [
         {
             name: 'description',
-            content: 'BarbeuQ - Jeu de carte entre amis... ou plus !',
+            content: 'BarbeuQ - Jeu de carte entre amis.',
         },
         {
             name: 'viewport',
@@ -19,7 +19,7 @@ useHead({
 useSeoMeta({
     ogTitle: 'BarbeuQ - Jeu de cartes entre amis',
     ogType: 'website',
-    ogDescription: 'Jeu de cartes entre amis, parfait pour accompagner ta soirée barbecue du début à la fin ;-)',
+    ogDescription: 'Jeu de cartes entre amis pour tes soirées barbecue.',
     ogUrl: 'https://barbeuq.stellaar.fr',
     ogSiteName: 'BarbeuQ',
     ogLocale: 'fr_FR',

@@ -1,3 +1,15 @@
+<script setup lang="ts">
+useHead({
+    link: [
+        {
+            rel: 'canonical',
+            href: 'https://barbeuq.stellaar.fr/',
+        },
+    ],
+    title: 'Accueil - BarbeuQ',
+})
+</script>
+
 <template>
     <div class="flex justify-center w-full">
         <div

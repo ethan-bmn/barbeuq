@@ -33,6 +33,29 @@ onMounted(() => {
         return
     }
 })
+
+function getTitleFromGameMode() {
+    if (gameMode === 'classic') {
+        return 'Classique'
+    }
+    if (gameMode === 'truth-or-dare') {
+        return 'Action ou vérité'
+    }
+    if (gameMode === 'autobahn') {
+        return 'Autobahn'
+    }
+    return gameMode
+}
+
+useHead({
+    title: `${getTitleFromGameMode()} - BarbeuQ`,
+    meta: [
+        {
+            name: 'robots',
+            content: 'noindex, follow',
+        },
+    ],
+})
 </script>
 
 <template>

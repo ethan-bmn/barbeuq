@@ -72,6 +72,16 @@ onMounted(() => {
 
     players.value = JSON.parse(localStorage.getItem('players') || '[]')
 })
+
+useHead({
+    title: 'Paramètres - BarbeuQ',
+    meta: [
+        {
+            name: 'robots',
+            content: 'noindex, follow',
+        },
+    ],
+})
 </script>
 
 <template>
