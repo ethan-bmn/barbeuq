@@ -60,7 +60,8 @@ onMounted(() => {
     >
         <div
             v-if="visible"
-            class="swipe-card quicksand mx-auto text-xl p-5 min-h-[55vh] max-h-[55vh]"
+            class="swipe-card quicksand mx-auto text-xl p-5 min-h-[45vh] max-h-[45vh] md:text-2xl"
+            style="user-select: none"
             @click="swipeOut"
         >
             <p
