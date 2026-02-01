@@ -243,7 +243,7 @@ onMounted(() => {
 }
 
 .add-btn:disabled {
-    background-color: darken($secondary, 7%);
+    background-color: color.adjust($secondary, $lightness: -7%);
     color: gray;
     pointer-events: none;
 }
