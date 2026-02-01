@@ -4,11 +4,8 @@ export default defineNuxtRouteMiddleware((to, from) => {
         '/setup': 1,
         '/lobby': 2,
     }
-    console.log(to.path, from.path)
     const toDepth = depths[to.path] || 0
     const fromDepth = depths[from.path] || 0
-
-    console.log(toDepth, fromDepth)
 
     if (toDepth > fromDepth) {
         to.meta.pageTransition = { name: 'page-left' }
