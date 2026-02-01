@@ -21,7 +21,7 @@ useSeoMeta({
                         style="width: 12vh; height: auto;"
                     >
                 </div>
-                <div class="momo-trust-display-regular absolute top-70/100 text-4xl text-white">
+                <div class="momo-trust-display-regular absolute top-70/100 text-4xl text-white select-none">
                     BarbeuQ
                 </div>
                 <button
@@ -45,6 +45,9 @@ useSeoMeta({
             <main style="position: relative; height: 100%;">
                 <slot id="main" />
             </main>
+            <div class="sticky text-center bottom-2.5 w-full text-gray-600 italic quicksand">
+                BarbeuQ - v.{{ $config.public.clientVersion }}
+            </div>
         </div>
     </div>
 </template>

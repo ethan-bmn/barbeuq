@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from '@tailwindcss/vite'
+import pkg from './package.json'
 
 export default defineNuxtConfig({
     modules: ['@nuxt/image', '@nuxt/eslint'],
@@ -28,6 +29,11 @@ export default defineNuxtConfig({
             stylistic: {
                 indent: 4,
             },
+        },
+    },
+    runtimeConfig: {
+        public: {
+            clientVersion: pkg.version,
         },
     },
 })
