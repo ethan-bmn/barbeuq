@@ -77,6 +77,8 @@ function navigateTo(to: string) {
     border-radius: var(--radius-xl);
     padding: calc(var(--spacing) * 3);
 
+    user-select: none;
+
     .inner-btn {
         grid-template-columns: 20% auto;
     }
@@ -93,26 +95,30 @@ function navigateTo(to: string) {
     }
 }
 
-.disabled {
-    background-color: color.adjust($secondary, $lightness: -13%);
-    color: #656565;
-
-    .inner-btn :not(.coming-soon) {
-        filter: blur(3px);
-    }
-
-    cursor: default;
-    .link-img {
-        opacity: 0.3;
-    }
-}
-
 .link-btn:not(.disabled):hover {
     box-shadow: 0 15px 30px rgba(194, 88, 18, 0.5);
     background-color: #3a3a3a;
     transform: translateY(-5px);
     cursor: pointer;
 }
+
+.disabled {
+    background-color: color.adjust($secondary, $lightness: -13%) !important;
+    color: #656565 !important;
+
+    box-shadow: none !important;
+    transform: none !important;
+
+    .inner-btn :not(.coming-soon) {
+        filter: blur(3px);
+    }
+
+    cursor: default !important;
+    .link-img {
+        opacity: 0.3;
+    }
+}
+
 
 .link-img {
     width: 46px;
