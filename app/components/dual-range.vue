@@ -25,6 +25,6 @@ const model = ref<number[]>([1, 10])
 }
 
 .m-range-theme {
-    --c-primary: #202020;
+    --c-primary: #646464;
 }
 </style>
