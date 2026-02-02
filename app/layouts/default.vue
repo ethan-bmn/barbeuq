@@ -12,6 +12,9 @@ useSeoMeta({
 
 <template>
     <div class="min-w-full flex justify-center">
+        <div class="w-0 sm:w-[15%] md:w-[22.5%] lg:w-[27.5%] xl:w-[30%] 2xl:w-[33.5%] bg-[#0C0C0C]">
+
+        </div>
         <div class="app-container w-full sm:w-[70%] md:w-[55%] lg:w-[45%] xl:w-[40%] 2xl:w-[33%]">
             <header class="h-[20%] w-full flex justify-center py-5 mb-10 relative mt-2">
                 <div class="glow-wrap">
@@ -48,6 +51,9 @@ useSeoMeta({
             <div class="sticky text-center bottom-2.5 w-full text-gray-600 italic quicksand">
                 BarbeuQ - v.{{ $config.public.clientVersion }}
             </div>
+        </div>
+        <div class="w-0 sm:w-[15%] md:w-[22.5%] lg:w-[27.5%] xl:w-[30%] 2xl:w-[33.5%] bg-[#0C0C0C]">
+
         </div>
     </div>
 </template>
