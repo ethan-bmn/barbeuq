@@ -1,0 +1,11 @@
+services:
+  barbeuq:
+    container_name: barbeuq
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3033:3000"
+    environment:
+      VITE_ENV: ${VITE_ENV}
+    restart: always
