@@ -43,7 +43,7 @@ function navigateTo(to: string) {
             <img
                 :src="img"
                 alt=""
-                class="my-auto link-img"
+                class="my-auto link-img ms-3"
             >
             <div class="quicksand">
                 <h1>
