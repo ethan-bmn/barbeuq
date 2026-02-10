@@ -27,4 +27,17 @@ const model = ref<number[]>([1, 10])
 .m-range-theme {
     --c-primary: #646464;
 }
+
+.m-range-thumb {
+    border-color: #939393;
+    transition: filter ease 0.2s;
+}
+
+.m-range-thumb-active {
+    filter: var(--un-blur) var(--un-brightness) var(--un-contrast)  drop-shadow(.1rem .15rem .25rem #e68a00) var(--un-grayscale) var(--un-hue-rotate) var(--un-invert) var(--un-saturate) var(--un-sepia)
+}
+
+.m-range-points {
+    display: none;
+}
 </style>

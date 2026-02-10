@@ -29,13 +29,20 @@ useSeoMeta({
     ogLocale: 'fr_FR',
 })
 
+const isLoading = ref(true)
+provide('isLoading', isLoading)
+
 function onAfterEnter() {
     window.dispatchEvent(new CustomEvent('onAfterEnter'))
 }
+
+onNuxtReady(() => {
+    isLoading.value = false
+})
 </script>
 
 <template>
-    <div>
+    <UApp>
         <NuxtLayout>
             <NuxtPage
                 :transition="{
@@ -43,9 +50,13 @@ function onAfterEnter() {
                 }"
             />
         </NuxtLayout>
-    </div>
+    </UApp>
 </template>
 
 <style>
 @import 'tailwindcss';
+
+body {
+    background-color: #121212;
+}
 </style>

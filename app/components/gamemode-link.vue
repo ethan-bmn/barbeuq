@@ -40,10 +40,11 @@ function navigateTo(to: string) {
         @click="navigateTo(to)"
     >
         <div class="inner-btn grid grid-cols-2 gap-6 relative">
-            <NuxtImg
+            <img
                 :src="img"
+                alt=""
                 class="my-auto link-img"
-            />
+            >
             <div class="quicksand">
                 <h1>
                     {{ title }}

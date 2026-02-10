@@ -22,25 +22,23 @@ const inputValid = computed(() => {
         && playerInput.value.length <= MAX_PLAYER_NAME_LENGTH
 })
 
-const players: Ref<string[]> = ref([])
+const players = ref(useCookie('player', {
+    default: () => [],
+    encode: (value: string[]) => JSON.stringify(value),
+    decode: (value: string) => JSON.parse(value),
+}))
 
 const router = useRouter()
-
-function syncLocalStorage() {
-    localStorage.setItem('players', JSON.stringify(players.value))
-}
 
 function addPlayer() {
     if (!players.value.includes(playerInput.value)) {
         players.value.push(playerInput.value)
         playerInput.value = ''
-        syncLocalStorage()
     }
 }
 
 function removePlayer(player: string) {
     players.value.splice(players.value.indexOf(player), 1)
-    syncLocalStorage()
 }
 
 function play() {
@@ -69,8 +67,6 @@ onMounted(() => {
     if (!gameMode || typeof gameMode !== 'string' || !validGameModes.includes(gameMode)) {
         router.push('/')
     }
-
-    players.value = JSON.parse(localStorage.getItem('players') || '[]')
 })
 
 useHead({
@@ -86,23 +82,23 @@ useHead({
 
 <template>
     <div class="w-full">
-        <div :class="`quicksand text-3xl text-center w-[1/3%] mb-4`">
+        <div class="quicksand text-3xl text-center w-full mb-10 relative">
             Qui joue ?
+            <Transition>
+                <div
+                    v-if="!inputValid && playerInput.length > MAX_PLAYER_NAME_LENGTH"
+                    class="quicksand text-sm text-center text-red-800 w-full italic mb-1 font-bold absolute left-0 top-11"
+                >
+                    Nom trop long !
+                </div>
+                <div
+                    v-else-if="players.length === 1"
+                    class="quicksand text-sm text-center text-red-800 w-full italic mb-1 font-bold absolute left-0 top-11"
+                >
+                    Pas assez de joueurs !
+                </div>
+            </Transition>
         </div>
-        <Transition>
-            <div
-                v-if="!inputValid && playerInput.length > MAX_PLAYER_NAME_LENGTH"
-                class="quicksand text-sm text-center text-red-800 italic mb-1 w-[1/3%] font-bold"
-            >
-                Nom trop long !
-            </div>
-            <div
-                v-else-if="players.length === 1"
-                class="quicksand text-sm text-center text-red-800 italic mb-1 w-[1/3%] font-bold"
-            >
-                Pas assez de joueurs !
-            </div>
-        </Transition>
         <form
             class="flex mx-auto mb-4 text-xl w-[80%]"
             @submit.prevent="addPlayer()"
@@ -166,7 +162,6 @@ useHead({
                 </p>
                 <DualRange
                     v-model="penalties"
-                    class="mx-auto block w-[75%]"
                 />
                 <button
                     class="play-btn text-3xl px-8 py-3 mx-auto mt-5 quicksand"

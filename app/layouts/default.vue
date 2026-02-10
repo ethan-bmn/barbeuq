@@ -12,48 +12,63 @@ useSeoMeta({
 
 <template>
     <div class="min-w-full flex justify-center">
-        <div class="w-0 sm:w-[15%] md:w-[22.5%] lg:w-[27.5%] xl:w-[30%] 2xl:w-[33.5%] bg-[#0C0C0C]">
-
+        <div class="w-0 sm:w-[15%] md:w-[22.5%] lg:w-[27.5%] xl:w-[30%] 2xl:w-[33.5%] bg-[#0C0C0C] px-35 quicksand">
+            <p class="text-center mt-75 text-3xl">
+                Bientôt disponible sur Google Play Store !
+            </p>
+            <p class="text-center mt-5 text-md italic">
+                Et peut-être sur l'Apple App Store...
+            </p>
         </div>
         <div class="app-container w-full sm:w-[70%] md:w-[55%] lg:w-[45%] xl:w-[40%] 2xl:w-[33%]">
-            <header class="h-[20%] w-full flex justify-center py-5 mb-10 relative mt-2">
+            <header class="h-[20%] w-full flex justify-center py-5 mb-[2svh] relative mt-[4svh]">
                 <div class="glow-wrap">
                     <img
                         alt="BarbeuQ Logo"
-                        src="/img/barbeuq_logo.svg"
+                        src="@/assets/img/barbeuq_logo.svg"
                         style="width: 12vh; height: auto;"
                     >
                 </div>
                 <div class="momo-trust-display-regular absolute top-70/100 text-4xl text-white select-none">
                     BarbeuQ
                 </div>
-                <button
-                    v-if="router.currentRoute.value.name !== 'index'"
-                    class="absolute left-5 back-btn"
-                    @click="goBack()"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 1024 1024"
+                <Transition>
+                    <button
+                        v-if="router.currentRoute.value.name !== 'index'"
+                        class="absolute left-5 back-btn"
+                        @click="goBack()"
                     >
-                        <path
-                            fill="currentColor"
-                            d="M752.145 0c8.685 0 17.572 3.434 24.237 10.099c13.33 13.33 13.33 35.143 0 48.473L320.126 515.03l449.591 449.591c13.33 13.33 13.33 35.144 0 48.474s-35.142 13.33-48.472 0L247.418 539.268c-13.33-13.33-13.33-35.144 0-48.474L727.91 10.1C734.575 3.435 743.46.002 752.146.002z"
-                        />
-                    </svg>
-                </button>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 1024 1024"
+                            class="m-1.5"
+                        >
+                            <path
+                                fill="currentColor"
+                                d="M752.145 0c8.685 0 17.572 3.434 24.237 10.099c13.33 13.33 13.33 35.143 0 48.473L320.126 515.03l449.591 449.591c13.33 13.33 13.33 35.144 0 48.474s-35.142 13.33-48.472 0L247.418 539.268c-13.33-13.33-13.33-35.144 0-48.474L727.91 10.1C734.575 3.435 743.46.002 752.146.002z"
+                            />
+                        </svg>
+                    </button>
+                </Transition>
             </header>
             <main style="position: relative; height: 100%;">
-                <slot id="main" />
+                <slot
+                    id="main"
+                />
             </main>
-            <div class="sticky text-center bottom-2.5 w-full text-gray-600 italic quicksand">
+            <div class="sticky text-center bottom-4 w-full text-gray-600 italic quicksand">
                 BarbeuQ - v.{{ $config.public.clientVersion }}
             </div>
         </div>
-        <div class="w-0 sm:w-[15%] md:w-[22.5%] lg:w-[27.5%] xl:w-[30%] 2xl:w-[33.5%] bg-[#0C0C0C]">
-
+        <div class="w-0 sm:w-[15%] md:w-[22.5%] lg:w-[27.5%] xl:w-[30%] 2xl:w-[33.5%] bg-[#0C0C0C] px-35 quicksand">
+            <p class="text-center mt-75 text-3xl">
+                Ce site a été conçu principalement pour les supports mobiles.
+            </p>
+            <p class="text-center mt-5 text-xl">
+                Pour une meilleure expérience, il est conseillé de jouer sur téléphone.
+            </p>
         </div>
     </div>
 </template>
@@ -62,8 +77,8 @@ useSeoMeta({
 .app-container {
     display: block;
     justify-content: center;
-    max-height: 100vh;
-    min-height: 100vh;
+    max-height: 100svh;
+    min-height: 100svh;
     background-color: $primary;
     color: white;
     overflow: clip;
@@ -136,5 +151,23 @@ canvas {
 .page-left-enter-to, .page-right-enter-to {
     transform: translateX(0);
     opacity: 1;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
+
+.progress-base {
+    background-color: #343434;
+}
+
+.progress-indicator {
+    background-color: #f39223;
 }
 </style>
