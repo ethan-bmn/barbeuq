@@ -3,9 +3,15 @@ import tailwindcss from '@tailwindcss/vite'
 import pkg from './package.json'
 
 export default defineNuxtConfig({
-    modules: ['@nuxt/image', '@nuxt/eslint'],
-    ssr: true,
+    modules: ['@nuxt/image', '@nuxt/eslint', '@nuxt/ui'],
+    plugins: ['~/plugins/error-handler.ts'],
     devtools: { enabled: true },
+    css: ['~/assets/style/app.css'],
+    runtimeConfig: {
+        public: {
+            clientVersion: pkg.version,
+        },
+    },
     compatibilityDate: '2025-07-15',
     nitro: {
         preset: 'bun',
@@ -30,11 +36,6 @@ export default defineNuxtConfig({
             stylistic: {
                 indent: 4,
             },
-        },
-    },
-    runtimeConfig: {
-        public: {
-            clientVersion: pkg.version,
         },
     },
 })
