@@ -12,7 +12,7 @@ useSeoMeta({
 
 <template>
     <div class="min-w-full flex justify-center">
-        <div class="w-0 sm:w-[15%] md:w-[22.5%] lg:w-[27.5%] xl:w-[30%] 2xl:w-[33.5%] bg-[#0C0C0C] px-35 quicksand">
+        <div class="w-0 sm:w-[15%] md:w-[22.5%] lg:w-[27.5%] xl:w-[30%] 2xl:w-[33.5%] bg-[#0C0C0C] px-[5vw] quicksand text-white">
             <p class="text-center mt-75 text-3xl">
                 Bientôt disponible sur Google Play Store !
             </p>
@@ -62,12 +62,12 @@ useSeoMeta({
                 BarbeuQ - v.{{ $config.public.clientVersion }}
             </div>
         </div>
-        <div class="w-0 sm:w-[15%] md:w-[22.5%] lg:w-[27.5%] xl:w-[30%] 2xl:w-[33.5%] bg-[#0C0C0C] px-35 quicksand">
+        <div class="w-0 sm:w-[15%] md:w-[22.5%] lg:w-[27.5%] xl:w-[30%] 2xl:w-[33.5%] bg-[#0C0C0C] px-[5vw] quicksand text-white">
             <p class="text-center mt-75 text-3xl">
-                Ce site a été conçu principalement pour les supports mobiles.
+                Ce site a été conçu pour les supports mobiles.
             </p>
             <p class="text-center mt-5 text-xl">
-                Pour une meilleure expérience, il est conseillé de jouer sur téléphone.
+                Pour une meilleure expérience, il est conseillé de jouer sur téléphone ou tablette.
             </p>
         </div>
     </div>

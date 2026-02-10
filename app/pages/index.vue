@@ -14,7 +14,6 @@ useHead({
 })
 
 const isLoading: Ref<boolean> | undefined = inject('isLoading')
-
 </script>
 
 <template>
