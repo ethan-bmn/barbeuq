@@ -1,0 +1,18 @@
+[
+    "$player, qui selon toi est le plus susceptible de faire du naturisme ? Distribue $penalties si le joueur désigné est VRAIMENT naturiste",
+    "$player, quelle est la durée de ton célibat le plus long ? Prends $penalties si ça ce compte en années.",
+    "$player, quelle est la durée de ta relation la plus longue ? Prends $penalties si c'est moins de 6 mois (et pose toi les bonnes questions).",
+    "$player, quel est ton talent inutile ? Distribue $penalties si c'est quand même un peu classe.",
+    "$player, quel était ton métier de rêve étant petit ? (Prends $penalties si c'était 'pompier', t'avais qu'à être original).",
+    "$player, dis nous 3 choses secrètes sur toi ou prends $penalties si vraiment tu les emportes dans la tombe.",
+    "$player, qui est la dernière personne à qui tu as envoyé un message ? (Distribue $penalties si c'était ta mère, on l'embrasse).",
+    "$player, est-ce que tu dors avec un doudou ? $penalties par peluche dans le lit.",
+    "$player, à quel âge as-tu fait ton premier baiser ? $penalties si c'était en primaire (bouuuuh les amoureux)",
+    "$player, tu sais jouer d'un instrument ? Si oui, le quel ? Et si c'est la guitare, prends $penalties pour manque cruel d'originalité.",
+    "$player, quand-est ce que t'as lu un livre pour la dernière fois ? $penalties si c'était il y a plus d'un an.",
+    "$player, selon toi, qui ici va fini sa vie seul entouré de chats ? Et prends $penalties si cette personne, c'est toi.",
+    "$player, quel a été ton pire date ? Prends $penalties si tu as eu le retour tout seul de la honte.",
+    "$player, quelle est ton habitude la plus bizarre ? $penalties si les autres pensent que c'est VRAIMENT bizarre (on te juge).",
+    "$player, selon toi, à qui reste-t-il 2 dégradés avant la calvasse ? $penalties pour lui si les golfes sont déjà visibles.",
+    "$player, à quelle âge t'as pris ta première cuite ? Pas de sanction si t'étais mineur, sinon prends $penalties pour rattraper le temps perdu."
+]

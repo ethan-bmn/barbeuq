@@ -1,0 +1,11 @@
+[
+    "$player, lis nous ton dernier message ou prends $penalties.",
+    "$player, fais nous écouter une chanson honteuse que tu kiffes en cachette. $penalties si VRAIMENT, fallait le garder pour toi.",
+    "$player, porte le joueur à ta gauche pendant 15 secondes et prends $penalties si tu n'y arrives pas.",
+    "$player, fais nous une imitation de ton choix. ($penalties si c'était raciste, même un peu).",
+    "$player, tu dois laisser un joueur te dessiner quelque chose sur la joue.",
+    "$player, appelle un numéro au hasard et essaye de tenir une conversation pendant 1 minute. Distribue $penalties si tu y'arrives.",
+    "$player, tourne sur toi même 10 secondes et essaye de marcher droit (sans vomir, ou prends $penalties).",
+    "$player, fais rire le joueur à ta droite. $penalties si tu as juste gêné tout le monde.",
+    "$player, si tu en as une, présente ta liste de trucs à faire avant de mourir."
+]

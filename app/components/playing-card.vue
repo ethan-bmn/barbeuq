@@ -10,6 +10,8 @@ defineProps({
 
 defineEmits(['swiped'])
 
+const selectedPlayer = defineModel({ type: String })
+
 const visible = ref(false)
 const transitionName = ref('swipe-in-up')
 const players: string[] = inject('players')!
@@ -21,17 +23,18 @@ function swipeOut() {
 }
 
 function swipeIn() {
+    getRandomPlayer()
     transitionName.value = 'swipe-in-up'
     visible.value = true
 }
 
 function getRandomPlayer() {
-    return players[randInt(0, players.length - 1)]
+    selectedPlayer.value = players[randInt(0, players.length - 1)]
 }
 
 function formatContent(content: string) {
     let result = content
-    result = result.replaceAll('$player', `<span style="color: #fe8b14">${getRandomPlayer()}</span>`)
+    result = result.replaceAll('$player', `<span style="color: #fe8b14">${selectedPlayer.value}</span>`)
 
     while (result.includes('$penalties')) {
         const embers = randInt(Number(penalties[0]), Number(penalties[1]))

@@ -11,6 +11,15 @@ const MAX_CARDS = 30
 
 const router = useRouter()
 
+const gameEnded = computed(() =>
+    data.value.length === 0 || cardCount.value >= MAX_CARDS,
+)
+
+function initGame() {
+    data.value = getGameModeData()
+    cardCount.value = 0
+}
+
 function getGameModeData(): string[] {
     switch (gameMode) {
         case 'classic':
@@ -20,12 +29,12 @@ function getGameModeData(): string[] {
     }
 }
 
-const data = getGameModeData()
+const data = ref(getGameModeData())
 
 function getRandomCard() {
-    if (data.length === 0) return []
-    chosenCard.value = data[randInt(0, data.length - 1)]!
-    data.splice(data.indexOf(chosenCard.value), 1)
+    if (data.value.length === 0) return []
+    chosenCard.value = data.value[randInt(0, data.value.length - 1)]!
+    data.value.splice(data.value.indexOf(chosenCard.value), 1)
     cardCount.value++
 }
 
@@ -42,6 +51,7 @@ function goBack() {
 }
 
 onMounted(() => {
+    initGame()
     getRandomCard()
 })
 </script>
@@ -52,7 +62,7 @@ onMounted(() => {
         style="scrollbar-width: none;"
     >
         <PlayingCard
-            v-if="data.length > 0 && cardCount < MAX_CARDS"
+            v-if="!gameEnded"
             ref="card"
             :content="chosenCard"
             @swiped="swipeCard()"
@@ -60,7 +70,7 @@ onMounted(() => {
 
         <Transition>
             <div
-                v-if="data.length === 0 || cardCount >= MAX_CARDS"
+                v-if="gameEnded"
                 class="quicksand text-center"
             >
                 <p class="text-2xl mb-3">
@@ -80,7 +90,7 @@ onMounted(() => {
     </div>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 .v-enter-active,
 .v-leave-active {
     transition: opacity 0.5s ease;
