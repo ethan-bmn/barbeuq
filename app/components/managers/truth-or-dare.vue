@@ -96,7 +96,7 @@ onMounted(() => {
                     </button>
                 </div>
             </div>
-            <PlayingCard
+            <TextCard
                 v-else-if="isLoaded && !gameEnded && pickedType && data[pickedType].length > 0 && cardCount < MAX_CARDS"
                 ref="card"
                 :content="chosenCard"

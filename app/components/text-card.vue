@@ -1,10 +1,8 @@
 <script setup lang="ts">
-const card = defineProps({
-    suit: {
-        type: String,
-        required: true,
-    },
-    value: {
+import { randInt } from '~/utils/randInt'
+
+defineProps({
+    content: {
         type: String,
         required: true,
     },
@@ -12,8 +10,12 @@ const card = defineProps({
 
 defineEmits(['swiped'])
 
+const selectedPlayer = defineModel({ type: String })
+
 const visible = ref(false)
 const transitionName = ref('swipe-in-up')
+const players: string[] = inject('players')!
+const penalties: number[] = inject('penalties')!
 
 function swipeOut() {
     transitionName.value = 'swipe-out-down'
@@ -21,8 +23,28 @@ function swipeOut() {
 }
 
 function swipeIn() {
+    getRandomPlayer()
     transitionName.value = 'swipe-in-up'
     visible.value = true
+}
+
+function getRandomPlayer() {
+    selectedPlayer.value = players[randInt(0, players.length - 1)]
+}
+
+function formatContent(content: string) {
+    let result = content
+    result = result.replaceAll('$player', `<span style="color: #fe8b14">${selectedPlayer.value}</span>`)
+
+    while (result.includes('$penalties')) {
+        const embers = randInt(Number(penalties[0]), Number(penalties[1]))
+        let text = 'sanctions'
+        if (embers === 1) {
+            text = 'sanction'
+        }
+        result = result.replace('$penalties', `<span style="color: #fe8b14">${embers}</span> ${text}`)
+    }
+    return result
 }
 
 defineExpose({
@@ -41,24 +63,13 @@ onMounted(() => {
     >
         <div
             v-if="visible"
-            class="swipe-card relative quicksand mx-auto text-xl p-5 min-h-[45vh] max-h-[45vh] md:text-2xl"
+            class="swipe-card quicksand mx-auto text-xl p-5 min-h-[45vh] max-h-[45vh] md:text-2xl"
             style="user-select: none"
             @click="swipeOut"
         >
-            <span class="absolute text-6xl top-[2%] left-[2%] text-center">
-                {{ card.suit }}
-            </span>
-
-            <span
-                class="absolute text-6xl top-[50%] left-[50%] font-bold"
-                style="transform: translate(-50%, -50%)"
-            >
-                {{ card.value }}
-            </span>
-
-            <span class="absolute text-6xl bottom-[2%] right-[2%] text-center">
-                {{ card.suit }}
-            </span>
+            <p
+                v-html="formatContent(content)"
+            />
         </div>
     </Transition>
 </template>

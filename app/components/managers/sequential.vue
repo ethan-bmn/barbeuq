@@ -61,7 +61,7 @@ onMounted(() => {
         class="py-4 mx-5 rounded-2xl min-h-full overflow-y-auto max-h-100 z-2 w-full relative flex justify-center pb-10"
         style="scrollbar-width: none;"
     >
-        <PlayingCard
+        <TextCard
             v-if="!gameEnded"
             ref="card"
             :content="chosenCard"
