@@ -12,7 +12,7 @@
     "Ceux qui se sont déjà fait tromper distribuent $penalties. Faut bien que ça apporte du positif...",
     "Tout le monde sort son compte en banque. Le plus pauvre prend $penalties.",
     "$player, prends $penalties. Pourquoi ? Parce que ça coûte pas cher.",
-    "$player, prends $penalties. ",
+    "$player, prends $penalties.",
     "$player, distribue $penalties à la personne à ta droite.",
     "$player tu peux faire moins de bruit s'il te plaît ? Prends $penalties pour te la faire fermer.",
     "Ceux qui sont en couple prennent leur nombre d'engueulades en sanctions.",
@@ -60,5 +60,7 @@
     "$player, fais un 'tu préfères'. Vote à main levée, la minorité prend $penalties.",
     "$player, fais deviner un mot de ton choix au joueur à ta droite. S'il devine, tu distribues $penalties sinon tu les prends.",
     "Celui qui a le plus de follower sur Instagram distribue $penalties.",
-    "$player, prends ton nombre de Points-Panda (Nombre de mois sans sexe) en sanctions. Si t'en as pas, distribue $penalties, gros baiseur va."
+    "$player, prends ton nombre de Points-Panda (Nombre de mois sans sexe) en sanctions. Si t'en as pas, distribue $penalties, gros baiseur va.",
+    "Ceux qui ont déjà re-pécho leur ex prennent $penalties.",
+    "$player, prends $penalties si tu as déjà acheté ddu Ciao Kombucha et que t'as trouvé ça dégueulasse (faut arrêter de faire semblant...)."
 ]
