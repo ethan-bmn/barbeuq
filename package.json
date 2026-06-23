@@ -4,9 +4,9 @@
   "private": true,
   "version": "0.2.32",
   "scripts": {
-    "build": "nuxt build --config nuxt.web.config.ts",
+    "build": "nuxt build",
     "dev": "nuxt dev --host 0.0.0.0",
-    "generate": "nuxt generate --config nuxt.tauri.config.ts",
+    "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
